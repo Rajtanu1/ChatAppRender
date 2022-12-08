@@ -22,13 +22,16 @@ const { handleValidationError, addUserToConnectedUsersArray, createActiveUserLis
 let expressServer = express();
 let server = http.createServer(expressServer);
 let port = process.env.PORT || 3000;
+let corsOptionObject = {
+  origin: "https://chatbudd.onrender.com"
+}
 
 
 let general = [];
 let connectedUsersArray = [];
 let userImagesObject = {};
 
-expressServer.use(cors());
+expressServer.use(cors(corsOptionObject));
 expressServer.use(bodyParser.urlencoded({extended: false}));
 expressServer.use(json());
 expressServer.set('view engine', 'ejs');

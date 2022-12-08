@@ -29,7 +29,7 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
   clientID: googleAuth.id,
   clientSecret: googleAuth.secret,
-  callbackURL: "http://localhost:3000/auth/callbackURL"
+  callbackURL: "http://chatbudd/auth/callbackURL"
 }, (accessToken, refreshToken, profile, done) => {//callback function of the google strategy
   OAuthUserModel.findOne({providerID: profile.id}, function(err, succ) {
     if(succ) {
